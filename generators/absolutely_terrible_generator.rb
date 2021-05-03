@@ -1,3 +1,5 @@
+require 'set'
+
 TEAMS = [
   {
     name: 'Turkey',
@@ -177,14 +179,16 @@ players = [
   'Serena',
   'Martin',
   'Waheed',
-  'Sean',
+  'Austin',
   'Dale',
   'Mark',
 ]
 
+extra_players = ['Sean']
+
 players.shuffle!(random: random)
 
-number_of_combinations = 100000
+number_of_combinations = 100_000
 
 results = 1.upto(number_of_combinations).map do |i|
   puts "Calculating combination #{i}"
@@ -231,6 +235,21 @@ puts "Valid combinations: #{((results.count / number_of_combinations) * 100).rou
 results.sort! { |a, b| a[:odds_diff] <=> b[:odds_diff] }
 
 results.first[:combination].each do |player, selected_teams|
+  total_odds = selected_teams.map { |t| t[:odds] }.inject(:+)
+  team_names = selected_teams.map { |t| "#{t[:flag]}  #{t[:name]}" }.join(", ")
+  puts "#{player}: #{team_names} [Odds weight #{total_odds}]"
+end
+
+first_choice_sets = results.first[:combination].map { |_, selected_teams| Set.new(selected_teams.map{ |t| t[:name] }) }
+
+available_additional_team_selections = results[1][:combination].values.select do |selected_teams|
+  set = Set.new(selected_teams.map{ |t| t[:name] })
+  next true if first_choice_sets.all? { |other_set| other_set.intersection(set).count < 2 }
+  false
+end
+
+extra_players.each_with_index do |player, i|
+  selected_teams = available_additional_team_selections[i]
   total_odds = selected_teams.map { |t| t[:odds] }.inject(:+)
   team_names = selected_teams.map { |t| "#{t[:flag]}  #{t[:name]}" }.join(", ")
   puts "#{player}: #{team_names} [Odds weight #{total_odds}]"
