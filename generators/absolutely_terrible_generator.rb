@@ -1,5 +1,17 @@
 require 'set'
 
+all_players = ARGV[0].split(',').map(&:strip).sort
+
+players = all_players.first(8)
+puts "#{players.count} players"
+
+extra_players = all_players.drop(8)
+puts "#{extra_players.count} extra players"
+
+seed = ARGV[1].to_i
+
+raise if seed.nil?
+
 TEAMS = [
   {
     name: 'Turkey',
@@ -171,20 +183,7 @@ TEAMS = [
   },
 ]
 
-random = Random.new(1)
-
-players = [
-  'Eoin',
-  'Peter',
-  'Serena',
-  'Martin',
-  'Waheed',
-  'Austin',
-  'Dale',
-  'Mark',
-]
-
-extra_players = ['Sean']
+random = Random.new(seed)
 
 players.shuffle!(random: random)
 
