@@ -106,7 +106,7 @@ TEAMS = [
   },
   {
     name: 'Croatia',
-    flag: '🇹🇷',
+    flag: '🇭🇷',
     odds: 26,
     group: 'D',
     tier: 2,
