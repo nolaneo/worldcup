@@ -9,3 +9,7 @@
 .max-w-12 {
   max-width: 3rem;
 }
+
+.fit-content {
+  width: fit-content;
+}

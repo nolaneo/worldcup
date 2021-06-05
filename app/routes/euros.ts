@@ -18,6 +18,13 @@ export default class Euros extends Route {
     if (params.id === 'pintmen') {
       this.sweepstakes.setPlayers(pintmenData as Array<Player>);
     }
-    return await taskFor(this.api.loadFixtures).perform();
+    let result = await Promise.all([
+      taskFor(this.api.loadStandings).perform(),
+      taskFor(this.api.loadFixtures).perform(),
+    ]);
+    return {
+      standings: result[0],
+      fixtures: result[1],
+    };
   }
 }

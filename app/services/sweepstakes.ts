@@ -4,6 +4,7 @@ import Service from '@ember/service';
 export type Player = {
   teams: Array<CountryCode>;
   image: string;
+  name: string;
 };
 
 export default class Sweepstakes extends Service {

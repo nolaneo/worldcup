@@ -1,1 +1,10 @@
-<Euros::FixtureList @fixtures={{@fixtures}} />
+<div class="flex flex-col space-y-2 pt-4">
+  <div class="text-center text-xl lg:text-2xl font-thin text-gray-300">
+    STANDINGS
+  </div>
+  <Euros::Standings @standings={{@standings}} />
+  <div class="text-center text-xl lg:text-2xl font-thin text-gray-300">
+    UPCOMING FIXTURES
+  </div>
+  <Euros::FixtureList @fixtures={{@fixtures}} />
+</div>
