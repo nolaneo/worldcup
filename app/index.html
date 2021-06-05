@@ -9,12 +9,16 @@
 
     {{content-for "head"}}
 
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+    </style>
+
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/euros.css" />
 
     {{content-for "head-footer"}}
   </head>
-  <body class="absolute inset-0 overflow-scroll">
+  <body>
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>

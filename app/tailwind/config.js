@@ -14,6 +14,14 @@ module.exports = {
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    extend: {
+      colors: {
+        boulder: '#0F0F10',
+        slate: '#1B1C21',
+        charcoal: '#25262B',
+        euros: '#0184A4',
+      },
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -255,6 +263,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Open Sans Condensed',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
