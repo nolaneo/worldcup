@@ -5,3 +5,7 @@
 
 @import 'tailwindcss/utilities';
 @import 'utilities.css';
+
+.max-w-12 {
+  max-width: 3rem;
+}

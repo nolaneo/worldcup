@@ -263,7 +263,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Open Sans Condensed',
+        'Barlow Condensed',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
