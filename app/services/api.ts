@@ -45,7 +45,10 @@ export interface FixtureWireformat {
   awayTeam: TeamWireFormat;
   kickOffTime: { dateTime: string };
   group: { groupName: string };
-  status: 'upcoming' | 'complete';
+  status: 'UPCOMING' | 'LIVE' | 'FINISHED';
+  minute?: { normal: number; injury?: number };
+  translations?: { phaseName: { EN: string } };
+  score?: { total: { away: number; home: number } };
 }
 
 export interface TeamStanding {
