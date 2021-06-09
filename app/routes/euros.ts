@@ -5,8 +5,9 @@ import { taskFor } from 'ember-concurrency-ts';
 import Sweepstakes, { Player } from 'euros/services/sweepstakes';
 import { data as collegeData } from 'euros/data/college';
 import { data as pintmenData } from 'euros/data/pintmen';
+import { data as babb } from 'euros/data/babb';
 
-type SweepstakesId = 'college' | 'pintmen';
+type SweepstakesId = 'college' | 'pintmen' | 'babb';
 export default class Euros extends Route {
   @service declare api: Api;
   @service declare sweepstakes: Sweepstakes;
@@ -17,6 +18,9 @@ export default class Euros extends Route {
     }
     if (params.id === 'pintmen') {
       this.sweepstakes.setPlayers(pintmenData as Array<Player>);
+    }
+    if (params.id === 'babb') {
+      this.sweepstakes.setPlayers(babb as Array<Player>);
     }
     let result = await Promise.all([
       taskFor(this.api.loadStandings).perform(),
