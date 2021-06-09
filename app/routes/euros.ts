@@ -6,8 +6,9 @@ import Sweepstakes, { Player } from 'euros/services/sweepstakes';
 import { data as collegeData } from 'euros/data/college';
 import { data as pintmenData } from 'euros/data/pintmen';
 import { data as babb } from 'euros/data/babb';
+import { data as ashData } from 'euros/data/ashbourne';
 
-type SweepstakesId = 'college' | 'pintmen' | 'babb';
+type SweepstakesId = 'college' | 'pintmen' | 'babb' | 'ashbourne';
 export default class Euros extends Route {
   @service declare api: Api;
   @service declare sweepstakes: Sweepstakes;
@@ -21,6 +22,9 @@ export default class Euros extends Route {
     }
     if (params.id === 'babb') {
       this.sweepstakes.setPlayers(babb as Array<Player>);
+    }
+    if (params.id === 'ashbourne') {
+      this.sweepstakes.setPlayers(ashData as Array<Player>);
     }
     let result = await Promise.all([
       taskFor(this.api.loadStandings).perform(),
