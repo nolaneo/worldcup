@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 import { TaskGenerator, task, dropTask, timeout } from 'ember-concurrency';
 import { taskFor } from 'ember-concurrency-ts';
 
@@ -66,7 +67,7 @@ export interface GroupStandingWireFormat {
   items: Array<TeamStanding>;
 }
 export default class Api extends Service {
-  model!: {
+  @tracked model!: {
     standings: Array<GroupStandingWireFormat>;
     fixtures: Array<FixtureWireformat>;
   };
