@@ -26,13 +26,9 @@ export default class Euros extends Route {
     if (params.id === 'ashbourne') {
       this.sweepstakes.setPlayers(ashData as Array<Player>);
     }
-    let result = await Promise.all([
-      taskFor(this.api.loadStandings).perform(),
-      taskFor(this.api.loadFixtures).perform(),
-    ]);
-    return {
-      standings: result[0],
-      fixtures: result[1],
-    };
+
+    await taskFor(this.api.loadModel).perform();
+    taskFor(this.api.enqueueRefresh).perform();
+    return this.api.model;
   }
 }
