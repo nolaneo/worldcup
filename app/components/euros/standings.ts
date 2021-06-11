@@ -1,4 +1,4 @@
-import {
+import Api, {
   GroupStandingWireFormat,
   TeamStanding,
   CountryCode,
@@ -28,11 +28,12 @@ interface PlayerStanding {
 export default class EurosStandingsComponent extends Component<Args> {
   @service declare sweepstakes: Sweepstakes;
   @tracked teamStandings: Partial<Record<CountryCode, TeamStanding>> = {};
+  @service declare api: Api;
 
   constructor(owner: unknown, args: Args) {
     super(owner, args);
 
-    this.args.standings
+    this.api.model.standings
       .flatMap((groupStanding) => groupStanding.items)
       .forEach((teamStanding) => {
         this.teamStandings[teamStanding.team.countryCode] = teamStanding;

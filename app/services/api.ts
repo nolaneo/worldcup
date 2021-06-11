@@ -79,6 +79,10 @@ export default class Api extends Service {
       taskFor(this.loadFixtures).perform(),
     ]);
     this.model = {
+      standings: [],
+      fixtures: [],
+    };
+    this.model = {
       standings: result[0] as Array<GroupStandingWireFormat>,
       fixtures: result[1] as Array<FixtureWireformat>,
     };
@@ -86,7 +90,7 @@ export default class Api extends Service {
 
   @task
   *enqueueRefresh(): TaskGenerator<void> {
-    yield timeout(15_000); //15 seconds
+    yield timeout(5_000); //5 seconds
     yield taskFor(this.loadModel).perform();
     taskFor(this.enqueueRefresh).perform();
   }

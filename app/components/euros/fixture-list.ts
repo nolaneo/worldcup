@@ -1,15 +1,17 @@
-import { FixtureWireformat } from './../../services/api';
+import Api, { FixtureWireformat } from './../../services/api';
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
 
 interface Args {
   fixtures: Array<FixtureWireformat>;
 }
-
 export default class EurosFixtureList extends Component<Args> {
+  @service declare api: Api;
+
   onlyShowRecentlyCompleted: boolean = true;
 
   get completedFixtures() {
-    return this.args.fixtures
+    return this.api.model.fixtures
       .filter((fixture) => {
         return (
           fixture.status === 'FINISHED' &&
@@ -32,7 +34,7 @@ export default class EurosFixtureList extends Component<Args> {
   }
 
   get liveFixtures() {
-    return this.args.fixtures
+    return this.api.model.fixtures
       .filter((fixture) => fixture.status === 'LIVE')
       .sort((a, b) => {
         return (
@@ -43,7 +45,7 @@ export default class EurosFixtureList extends Component<Args> {
   }
 
   get upcomingFixtures() {
-    return this.args.fixtures
+    return this.api.model.fixtures
       .filter((fixture) => fixture.status === 'UPCOMING')
       .sort((a, b) => {
         return (
