@@ -57,6 +57,7 @@ export default class EurosStandingsComponent extends Component<Args> {
       player.teams.forEach((countryCode) => {
         let teamStanding = this.teamStandings[countryCode];
         if (teamStanding) {
+          playerStanding.points += teamStanding.points;
           playerStanding.drawn += teamStanding.drawn;
           playerStanding.goalDifference += teamStanding.goalDifference;
           playerStanding.goalsAgainst += teamStanding.goalsAgainst;
