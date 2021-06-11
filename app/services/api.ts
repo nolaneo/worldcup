@@ -90,7 +90,7 @@ export default class Api extends Service {
 
   @task
   *enqueueRefresh(): TaskGenerator<void> {
-    yield timeout(5_000); //5 seconds
+    yield timeout(10_000); //10 seconds
     yield taskFor(this.loadModel).perform();
     taskFor(this.enqueueRefresh).perform();
   }
