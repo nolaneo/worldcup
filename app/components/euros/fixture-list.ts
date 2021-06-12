@@ -1,6 +1,8 @@
 import Api, { FixtureWireformat } from './../../services/api';
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 interface Args {
   fixtures: Array<FixtureWireformat>;
@@ -8,7 +10,11 @@ interface Args {
 export default class EurosFixtureList extends Component<Args> {
   @service declare api: Api;
 
-  onlyShowRecentlyCompleted: boolean = true;
+  @tracked onlyShowRecentlyCompleted: boolean = true;
+
+  @action toggleRecentResultsList() {
+    this.onlyShowRecentlyCompleted = !this.onlyShowRecentlyCompleted;
+  }
 
   get completedFixtures() {
     return this.api.model.fixtures

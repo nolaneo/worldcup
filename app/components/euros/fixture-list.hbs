@@ -17,9 +17,22 @@
 
   {{#if this.completedFixtures.length}}
     <div class="flex flex-col">
-      <div class="text-center text-xl lg:text-2xl font-thin text-gray-300">
-        RECENT RESULTS
+      <div class="flex flex-row lg:max-w-2xl self-center w-full">
+        <div class="flex flex-col w-1/4 ml-4 lg:ml-0"></div>
+        <div class="flex flex-col flex-1 text-center text-xl lg:text-2xl font-thin text-gray-300">
+          {{#if this.onlyShowRecentlyCompleted}}RECENT RESULTS{{else}}ALL RESULTS{{/if}}
+        </div>
+        <div
+          role="button"
+          class="flex flex-col rounded w-1/4 border border-purple-700 text-purple-700 hover:text-white hover:bg-purple-700 hover:cursor-pointer transition-colors mr-4 lg:mr-0"
+          {{on "click" this.toggleRecentResultsList}}
+        >
+          <span class="self-center leading-8 whitespace-nowrap text-xs">
+            {{#if this.onlyShowRecentlyCompleted}}SEE ALL RESULTS{{else}}HIDE RESULTS{{/if}}
+          </span>
+        </div>
       </div>
+ 
 
       <div class="flex flex-col items-center space-y-4 p-4">
         {{#each this.completedFixtures as |fixture|}}

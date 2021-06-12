@@ -14,6 +14,10 @@
         </div>
       {{else if this.isUpcoming}}
         vs
+      {{else}}
+        <div class="text-gray-400 text-center uppercase font-thin whitespace-nowrap">
+          {{moment-from-now @fixture.kickOffTime.dateTime}}
+        </div>
       {{/if}}
     </div>
     <Euros::FixtureList::Fixture::TeamName @team={{@fixture.awayTeam}} class="text-right flex-row-reverse -mr-2" />
