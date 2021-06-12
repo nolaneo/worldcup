@@ -27,8 +27,8 @@ export default class EurosFixtureList extends Component<Args> {
       })
       .sort((a, b) => {
         return (
-          new Date(a.kickOffTime.dateTime).getTime() -
-          new Date(b.kickOffTime.dateTime).getTime()
+          new Date(b.kickOffTime.dateTime).getTime() -
+          new Date(a.kickOffTime.dateTime).getTime()
         );
       });
   }
