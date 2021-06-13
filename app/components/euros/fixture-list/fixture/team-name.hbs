@@ -1,4 +1,4 @@
-<div class="flex flex-row items-center w-3/6 text-gray-100 text-xl uppercase font-bold" ...attributes>
+<div class="flex flex-row items-center w-3/6 text-gray-100 {{if (gt @team.internationalName.length 8) 'text-base' 'text-xl'}} lg:text-xl uppercase font-bold" ...attributes>
   {{#if @team.countryCode}}
     <img src="/euros/assets/svg/flags/{{@team.countryCode}}.svg" class="h-8 mx-2 rounded"/>
   {{/if}}
