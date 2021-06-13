@@ -1,4 +1,4 @@
-<tr class="text-white text-lg">
+<tr class="text-white text-lg {{if (eq @index 0) 'bg-green-900'}} {{if (eq (inc @index) @totalRows) 'bg-red-900'}} bg-opacity-30">
   <td>
     <div class="flex flex-row space-x-2 items-center p-2 pl-4 fit-content">
       <img src="/euros/assets/{{@standing.player.image}}" class="inline-block h-6 w-6 rounded-full ring-2 ring-white" title={{@standing.player.name}}/>

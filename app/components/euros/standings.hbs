@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         {{#each this.orderedTotals as |standing index|}}
-          <Euros::Standings::Row @standing={{standing}} @index={{index}} />
+          <Euros::Standings::Row @standing={{standing}} @index={{index}} @totalRows={{this.orderedTotals.length}}/>
         {{/each}}
       </tbody>
     </table>
