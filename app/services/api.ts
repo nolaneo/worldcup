@@ -8,30 +8,50 @@ const fixturesEnpoint = `https://match.uefa.com/v5/matches?competitionId=17&utcO
 const apiKey = `ceeee1a5bb209502c6c438abd8f30aef179ce669bb9288f2d1cf2fa276de03f4`;
 
 export type CountryCode =
-  | 'ENG'
-  | 'DEN'
-  | 'MKD'
-  | 'ITA'
-  | 'RUS'
-  | 'UKR'
-  | 'NED'
-  | 'POL'
-  | 'WAL'
-  | 'GER'
+  | 'ARG'
+  | 'BRA'
   | 'CRO'
-  | 'FIN'
-  | 'BEL'
-  | 'SWE'
-  | 'HUN'
-  | 'POR'
-  | 'TUR'
-  | 'SVK'
-  | 'FRA'
-  | 'SUI'
+  | 'ENG'
+  | 'GER'
+  | 'ITA'
+  | 'MAR'
+  | 'POL'
   | 'SCO'
+  | 'SVK'
+  | 'UKR'
+  | 'AUS'
+  | 'CAN'
+  | 'CZE'
   | 'ESP'
+  | 'GHA'
+  | 'JPN'
+  | 'MEX'
+  | 'POR'
+  | 'SEN'
+  | 'SWE'
+  | 'URU'
   | 'AUT'
-  | 'CZE';
+  | 'CMR'
+  | 'DEN'
+  | 'FIN'
+  | 'HUN'
+  | 'KOR'
+  | 'MKD'
+  | 'QAT'
+  | 'SRB'
+  | 'TUN'
+  | 'USA'
+  | 'BEL'
+  | 'CRC'
+  | 'ECU'
+  | 'FRA'
+  | 'IRN'
+  | 'KSA'
+  | 'NED'
+  | 'RUS'
+  | 'SUI'
+  | 'TUR'
+  | 'WAL';
 
 export interface TeamWireFormat {
   internationalName: string;
@@ -43,7 +63,7 @@ export interface FixtureWireformat {
   homeTeam: TeamWireFormat;
   awayTeam: TeamWireFormat;
   kickOffTime: { dateTime: string };
-  group: { groupName: string };
+  group: { metadata: { groupName: string } };
   status: 'UPCOMING' | 'LIVE' | 'FINISHED';
   minute?: { normal: number; injury?: number };
   translations?: { phaseName: { EN: string } };
