@@ -21,10 +21,10 @@
     "module": "es6",
     "experimentalDecorators": true,
     "paths": {
-      "euros/tests/*": [
+      "worldcup/tests/*": [
         "tests/*"
       ],
-      "euros/*": [
+      "worldcup/*": [
         "app/*"
       ],
       "*": [

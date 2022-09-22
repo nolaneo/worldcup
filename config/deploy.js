@@ -4,10 +4,10 @@
 module.exports = function () {
   let ENV = {
     build: {},
-    rootURL: '/euros/',
+    rootURL: '/worldcup/',
     locationType: 'hash',
     ghpages: {
-      gitRemoteUrl: 'git@github.com:/nolaneo/euros',
+      gitRemoteUrl: 'git@github.com:/nolaneo/worldcup',
     },
   };
   return ENV;

@@ -19,7 +19,7 @@ module.exports = {
         boulder: '#0F0F10',
         slate: '#1B1C21',
         charcoal: '#25262B',
-        euros: '#0184A4',
+        worldcup: '#0184A4',
       },
     },
     screens: {

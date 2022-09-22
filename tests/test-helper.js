@@ -1,5 +1,5 @@
-import Application from 'euros/app';
-import config from 'euros/config/environment';
+import Application from 'worldcup/app';
+import config from 'worldcup/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
