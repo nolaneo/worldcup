@@ -1,0 +1,43 @@
+<div class="flex flex-col flex-grow rounded-xl  w-full shadow lg:max-w-2xl p-4 space-y-4 {{if this.isLive 'bg-purple-900 bg-opacity-30' 'bg-charcoal'}}">
+  <div class="flex flex-row items-center">
+    <WorldCup::FixtureList::Fixture::TeamName @team={{@fixture.homeTeam}} class="text-left -ml-2" />
+    <div class="flex flex-col flex-grow text-center text-gray-300">
+      {{#if this.isLive}}
+        <div class="flex flex-row space-x-2 items-center">
+          <div class="h-3 w-3 rounded-full bg-red-800 animate-pulse"></div>
+          <div>
+            <span class="whitespace-nowrap">LIVE{{~#if @fixture.minute.normal}}: {{or @fixture.minute.normal '––'}} {{~#if @fixture.minute.injury}}+{{@fixture.minute.injury}}{{/if}}'{{/if}}</span>
+          </div>
+        </div>
+        <div class="text-gray-500 text-center uppercase font-thin whitespace-nowrap">
+          {{or @fixture.translations.phaseName.EN 'First half'}}
+        </div>
+      {{else if this.isUpcoming}}
+        vs
+      {{else}}
+        <div class="text-gray-400 text-center uppercase font-thin whitespace-nowrap">
+          {{moment-from-now @fixture.kickOffTime.dateTime}}
+        </div>
+      {{/if}}
+    </div>
+    <WorldCup::FixtureList::Fixture::TeamName @team={{@fixture.awayTeam}} class="text-right flex-row-reverse -mr-2" />
+  </div>
+  <div class="flex flex-row items-center">
+    <WorldCup::FixtureList::Fixture::Avatars @countryCode={{@fixture.homeTeam.countryCode}} class="justify-start" />
+    {{#if this.isUpcoming}}
+      <div class="flex flex-col items-center w-1/3">
+        <div class="text-gray-400 uppercase font-light text-lg text-center">
+          {{moment-format @fixture.kickOffTime.dateTime 'ddd MMMM DD'}}<br>
+          {{moment-format @fixture.kickOffTime.dateTime 'HH:mm'}}
+        </div>
+      </div>
+    {{else}}
+      <div class="flex flex-col items-center w-1/3 space-y-1">
+        <div class="text-white uppercase font-light text-4xl text-center">
+          {{or @fixture.score.total.home '0'}} – {{or @fixture.score.total.away '0'}}
+        </div>
+      </div>
+    {{/if}}
+    <WorldCup::FixtureList::Fixture::Avatars @countryCode={{@fixture.awayTeam.countryCode}} class="justify-end" />
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="flex flex-col items-center space-y-4 p-4">
+  <div class="flex flex-col flex-grow rounded-xl bg-charcoal w-full shadow lg:max-w-2xl pb-2">
+    <table class="mt-2">
+      <thead>
+        <tr class="text-gray-300">
+          <th><!--Name--></th>
+          <th><!--Flags--></th>
+          <th class="text-left">MP</th>
+          <th class="text-left">W</th>
+          <th class="text-left">D</th>
+          <th class="text-left">L</th>
+          <th class="text-left hidden lg:block">GF</th>
+          <th class="text-left">GD</th>
+          <th class="text-left pr-4">PT</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this.orderedTotals as |standing index|}}
+          <WorldCup::Standings::Row @standing={{standing}} @index={{index}} @totalRows={{this.orderedTotals.length}}/>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
