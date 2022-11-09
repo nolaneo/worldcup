@@ -208,6 +208,10 @@ players.shuffle!(random: random)
 
 teams_by_tier = TEAMS.group_by { |team| team[:tier] }
 
+teams_by_tier.each do |t, teams|
+  raise "#{teams.count} in tier #{t}" unless teams.count == 8
+end
+
 output_teams_by_tier = {
   1 => [],
   2 => [],
@@ -236,6 +240,8 @@ result = 1.upto(number_of_combinations).find do |i|
 
   is_ok = 0.upto(players.count).all? do |i|
     output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i][:group] }.uniq.count == 4
+    output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i][:name] }.uniq.count >= 4
+
   end
 
   if !is_ok
@@ -251,8 +257,13 @@ else
  puts "Combo found"
 end
 
+
 players.each_with_index do |player, i|
   selected_teams = output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i] }
   team_names = selected_teams.map { |t| "#{t[:flag]}  #{t[:name]} (Group #{t[:group]}, Tier #{t[:tier]})" }.join(", ")
   puts "#{player}: #{team_names}"
 end
+
+puts output_teams_by_tier.values.flatten.uniq.map{|team| team[:name]}
+
+puts output_teams_by_tier.values.flatten.uniq.count
