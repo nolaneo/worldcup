@@ -1,12 +1,6 @@
 require 'set'
 
-all_players = ARGV[0].split(',').map(&:strip).sort
-
-players = all_players.first(8)
-puts "#{players.count} players"
-
-extra_players = all_players.drop(8)
-puts "#{extra_players.count} extra players"
+players = ARGV[0].split(',').map(&:strip).sort
 
 seed = ARGV[1].to_i
 
@@ -119,7 +113,7 @@ TEAMS = [
     name: 'Germany',
     flag: '🇩🇪',
     group: 'E',
-    tier: 2,
+    tier: 1,
   },
   {
     name: 'Japan',
@@ -137,7 +131,7 @@ TEAMS = [
     name: 'Belgium',
     flag: '🇧🇪',
     group: 'F',
-    tier: 1,
+    tier: 2,
   },
   {
     name: 'Croatia',
@@ -211,62 +205,54 @@ random = Random.new(seed)
 
 players.shuffle!(random: random)
 
-number_of_combinations = 20_000
 
-results = 1.upto(number_of_combinations).map do |i|
-  puts "Calculating combination #{i}"
+teams_by_tier = TEAMS.group_by { |team| team[:tier] }
 
-  teams = TEAMS.dup
-  res = {}
-  success = true
+output_teams_by_tier = {
+  1 => [],
+  2 => [],
+  3 => [],
+  4 => [],
+}
 
-  players.each do |player|
-    res[player] = []
-    used_groups = []
-    
-    1.upto(4) do |current_tier|
-      teams.shuffle!(random: random)
-      available_teams = teams.reject { |t| used_groups.include?(t[:group]) || t[:tier] != current_tier }
+0.upto(players.count) do |i|
+  puts "Generating output teams #{i}"
 
-      if available_teams.empty?
-        success = false
-        break
-      end
-
-      team = available_teams.pop
-      teams.delete(team)
-      res[player] << team
-      used_groups << team[:group]
-    end
-
-    break if success == false
+  if teams_by_tier.all? { |_, v| v.empty? }
+  teams_by_tier = TEAMS.group_by { |team| team[:tier] }
   end
 
-  next nil unless success
-
-
-  {
-    combination: res,
-  }
-end.compact
-
-results.shuffle!(random: random)
-
-results.first[:combination].each do |player, selected_teams|
-  team_names = selected_teams.map { |t| "#{t[:flag]}  #{t[:name]} (Group #{t[:group]}, Tier #{t[:tier]})" }.join(", ")
-  puts "#{player}: #{team_names}"
+  1.upto(4) do |tier|
+    team = teams_by_tier[tier].shuffle!(random: random).pop
+    output_teams_by_tier[tier] << team
+  end
 end
 
-first_choice_sets = results.first[:combination].map { |_, selected_teams| Set.new(selected_teams.map{ |t| t[:name] }) }
 
-available_additional_team_selections = results[1][:combination].values.select do |selected_teams|
-  set = Set.new(selected_teams.map{ |t| t[:name] })
-  next true if first_choice_sets.all? { |other_set| other_set.intersection(set).count < 2 }
-  false
+number_of_combinations = 20_000
+
+result = 1.upto(number_of_combinations).find do |i|
+  puts "Calculating combination #{i}"
+
+  is_ok = 0.upto(players.count).all? do |i|
+    output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i][:group] }.uniq.count == 4
+  end
+
+  if !is_ok
+    output_teams_by_tier.each { |_, teams| teams.shuffle!(random: random) }
+  end
+
+  is_ok
 end
 
-extra_players.each_with_index do |player, i|
-  selected_teams = available_additional_team_selections[i]
+if result.nil?
+  raise "No combo found"
+else
+ puts "Combo found"
+end
+
+players.each_with_index do |player, i|
+  selected_teams = output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i] }
   team_names = selected_teams.map { |t| "#{t[:flag]}  #{t[:name]} (Group #{t[:group]}, Tier #{t[:tier]})" }.join(", ")
   puts "#{player}: #{team_names}"
 end
