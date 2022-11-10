@@ -1,200 +1,236 @@
 require 'set'
+require 'json'
 
-players = ARGV[0].split(',').map(&:strip).sort
+player_args = ARGV[0]
+team_arg = ARGV[1]
+seed_arg = ARGV[2]
 
-seed = ARGV[1].to_i
+players = player_args.split(',').map(&:strip).sort
+seed = seed_arg.to_i
 
 raise if seed.nil?
 
 TEAMS = [
   {
     name: 'Netherlands',
+    code: 'NED',
     flag: '🇳🇱',
     group: 'A',
     tier: 1,
   },
   {
     name: 'Senegal',
+    code: 'SEN',
     flag: '🇸🇳',
     group: 'A',
     tier: 2,
   },
   {
     name: 'Ecuador',
+    code: 'ECU',
     flag: '🇪🇨',
     group: 'A',
     tier: 3,
   },
   {
     name: 'Qatar',
+    code: 'QAT',
     flag: '🇶🇦',
     group: 'A',
     tier: 4,
   },
   {
     name: 'England',
+    code: 'ENG',
     flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
     group: 'B',
     tier: 1,
   },
   {
     name: 'Wales',
+    code: 'WAL',
     flag: '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
     group: 'B',
     tier: 2,
   },
   {
     name: 'USA',
+    code: 'USA',
     flag: '🇺🇸',
     group: 'B',
     tier: 3,
   },
   {
     name: 'Iran',
+    code: 'IRN',
     flag: '🇮🇷',
     group: 'B',
     tier: 4,
   },
   {
     name: 'Argentina',
+    code: 'ARG',
     flag: '🇦🇷',
     group: 'C',
     tier: 1,
   },
   {
     name: 'Mexico',
+    code: 'MEX',
     flag: '🇲🇽',
     group: 'C',
     tier: 2,
   },
   {
     name: 'Poland',
+    code: 'POL',
     flag: '🇵🇱',
     group: 'C',
     tier: 3,
   },
   {
     name: 'Saudi Arabia',
+    code: 'KSA',
     flag: '🇸🇦',
     group: 'C',
     tier: 4,
   },
   {
     name: 'France',
+    code: 'FRA',
     flag: '🇫🇷',
     group: 'D',
     tier: 1,
   },
   {
     name: 'Denmark',
+    code: 'DEN',
     flag: '🇩🇰',
     group: 'D',
     tier: 2,
   },
   {
     name: 'Australia',
+    code: 'AUS',
     flag: '🇦🇺',
     group: 'D',
     tier: 3,
   },
   {
     name: 'Tunisia',
+    code: 'TUN',
     flag: '🇹🇳',
     group: 'D',
     tier: 4,
   },
   {
     name: 'Spain',
+    code: 'ESP',
     flag: '🇪🇸',
     group: 'E',
     tier: 1,
   },
   {
     name: 'Germany',
+    code: 'GER',
     flag: '🇩🇪',
     group: 'E',
-    tier: 1,
+    tier: 2,
   },
   {
     name: 'Japan',
+    code: 'JPN',
     flag: '🇯🇵',
     group: 'E',
     tier: 3,
   },
   {
     name: 'Costa Rica',
+    code: 'CRC',
     flag: '🇨🇷',
     group: 'E',
     tier: 4,
   },
   {
     name: 'Belgium',
+    code: 'BEL',
     flag: '🇧🇪',
     group: 'F',
-    tier: 2,
+    tier: 1,
   },
   {
     name: 'Croatia',
+    code: 'CRO',
     flag: '🇭🇷',
     group: 'F',
     tier: 2,
   },
   {
     name: 'Morocco',
+    code: 'MAR',
     flag: '🇲🇦',
     group: 'F',
     tier: 3,
   },
   {
     name: 'Canada',
+    code: 'CAN',
     flag: '🇨🇦',
     group: 'F',
     tier: 4,
   },
   {
     name: 'Brazil',
+    code: 'BRA',
     flag: '🇧🇷',
     group: 'G',
     tier: 1,
   },
   {
     name: 'Switzerland',
+    code: 'SUI',
     flag: '🇨🇭',
     group: 'G',
     tier: 2,
   },
   {
     name: 'Serbia',
+    code: 'SRB',
     flag: '🇷🇸',
     group: 'G',
     tier: 3,
   },
   {
     name: 'Cameroon',
+    code: 'CMR',
     flag: '🇨🇲',
     group: 'G',
     tier: 4,
   },
   {
     name: 'Portugal',
+    code: 'POR',
     flag: '🇵🇹',
     group: 'H',
     tier: 1,
   },
   {
     name: 'Uruguay',
+    code: 'URU',
     flag: '🇺🇾',
     group: 'H',
     tier: 2,
   },
   {
     name: 'South Korea',
+    code: 'KOR',
     flag: '🇰🇷',
     group: 'H',
     tier: 3,
   },
   {
     name: 'Ghana',
+    code: 'GHA',
     flag: '🇬🇭',
     group: 'H',
     tier: 4,
@@ -264,6 +300,22 @@ players.each_with_index do |player, i|
   puts "#{player}: #{team_names}"
 end
 
-puts output_teams_by_tier.values.flatten.uniq.map{|team| team[:name]}
+puts "----"
+if team_arg
+  data = {
+    players: players.map.with_index { |p, i|
+      selected_teams = output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i] }
+      {
+        name: p,
+        teams: selected_teams.map{ |t| t[:code]},
+        image: ""
+      }
+    }
+  }
+  filename = "public/players/#{team_arg}.json"
+  File.write(filename, data.to_json)
+  puts "created #{filename}"
+end
 
+puts output_teams_by_tier.values.flatten.uniq.map{|team| team[:name]}
 puts output_teams_by_tier.values.flatten.uniq.count
