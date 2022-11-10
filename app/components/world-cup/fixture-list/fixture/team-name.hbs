@@ -1,6 +1,6 @@
 <div class="flex flex-row items-center w-3/6 text-gray-100 {{if (gt @team.internationalName.length 8) 'text-base' 'text-xl'}} lg:text-xl uppercase font-bold" ...attributes>
   {{#if @team.countryCode}}
-    <img src="/worldcup/assets/svg/flags/{{@team.countryCode}}.svg" class="h-8 mx-2 rounded"/>
+    <img src="/assets/svg/flags/{{@team.countryCode}}.svg" class="h-8 mx-2 rounded"/>
   {{/if}}
   <div>
     {{#if (eq @team.internationalName 'North Macedonia')}}
