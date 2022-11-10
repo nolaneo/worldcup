@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 import Api from 'worldcup/services/api';
 import { taskFor } from 'ember-concurrency-ts';
 import Sweepstakes, { Player } from 'worldcup/services/sweepstakes';
+import ENV from 'worldcup/config/environment';
 
 export default class WorldCup extends Route {
   @service declare api: Api;
@@ -10,8 +11,12 @@ export default class WorldCup extends Route {
 
   async model(params: { id: string }) {
     var players: Player[];
+    var id = params.id;
+    if (id === undefined) {
+      id = ENV.APP.default_group as string;
+    }
     try {
-      let response = await fetch(`/players/${params.id}.json`);
+      let response = await fetch(`/players/${id}.json`);
       let loadedData = await response.json();
       players = loadedData.players;
     } catch {
