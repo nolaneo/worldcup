@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { TaskGenerator, task, dropTask, timeout } from 'ember-concurrency';
 import { taskFor } from 'ember-concurrency-ts';
 
-const standingsEndpoint = `https://standings.uefa.com/v1/standings?groupIds=2006438,2006439,2006440,2006441,2006442,2006443`;
+const standingsEndpoint = `https://standings.uefa.com/v1/standings?groupIds=2007941,2007942,2007943,2007944,2007946,2007945,2007947,2007948`;
 const fixturesEnpoint = `https://match.uefa.com/v5/matches?competitionId=17&utcOffset=1&order=ASC&offset=0&fromDate=2022-11-20&toDate=2022-12-18&limit=100`;
 const apiKey = `ceeee1a5bb209502c6c438abd8f30aef179ce669bb9288f2d1cf2fa276de03f4`;
 

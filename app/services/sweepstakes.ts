@@ -61,6 +61,9 @@ export default class Sweepstakes extends Service {
 
     this.players.forEach((player) => {
       player.teams.forEach((countryCode) => {
+        if (!this.countryMapping[countryCode]) {
+          throw `[${countryCode}] is missing.`;
+        }
         this.countryMapping[countryCode].push(player);
       });
     });
