@@ -4,7 +4,7 @@
 module.exports = function () {
   let ENV = {
     build: {},
-    rootURL: '/worldcup/',
+    rootURL: '/',
     locationType: 'hash',
     ghpages: {
       domain: 'nolaneo.com',
