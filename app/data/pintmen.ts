@@ -1,7 +1,7 @@
 export const data = [
   {
     name: 'Eoin',
-    teams: ['GER', 'CRO', 'AUS', 'QAT'],
+    teams: ['GER', 'CRO', 'KOR', 'QAT'],
     image: 'college/eoin.jpg',
   },
   {
