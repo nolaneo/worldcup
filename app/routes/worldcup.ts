@@ -2,16 +2,21 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import Api from 'worldcup/services/api';
 import { taskFor } from 'ember-concurrency-ts';
-import Sweepstakes from 'worldcup/services/sweepstakes';
+import Sweepstakes, { Player } from 'worldcup/services/sweepstakes';
 
 export default class WorldCup extends Route {
   @service declare api: Api;
   @service declare sweepstakes: Sweepstakes;
 
   async model(params: { id: string }) {
-    let response = await fetch(`/players/${params.id}.json`);
-    let loadedData = await response.json();
-    let players = loadedData.players;
+    var players: Player[];
+    try {
+      let response = await fetch(`/players/${params.id}.json`);
+      let loadedData = await response.json();
+      players = loadedData.players;
+    } catch {
+      players = [];
+    }
 
     this.sweepstakes.setPlayers(players);
     await taskFor(this.api.loadModel).perform();
