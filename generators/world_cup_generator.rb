@@ -1,8 +1,12 @@
 require 'set'
+require 'json'
 
-players = ARGV[0].split(',').map(&:strip).sort
+player_args = ARGV[0]
+team_arg = ARGV[1]
+seed_arg = ARGV[2]
 
-seed = ARGV[1].to_i
+players = player_args.split(',').map(&:strip).sort
+seed = seed_arg.to_i
 
 raise if seed.nil?
 
@@ -296,6 +300,22 @@ players.each_with_index do |player, i|
   puts "#{player}: #{team_names}"
 end
 
-puts output_teams_by_tier.values.flatten.uniq.map{|team| team[:name]}
+puts "----"
+if team_arg
+  data = {
+    players: players.map.with_index { |p, i|
+      selected_teams = output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i] }
+      {
+        name: p,
+        teams: selected_teams.map{ |t| t[:code]},
+        image: ""
+      }
+    }
+  }
+  filename = "public/players/#{team_arg}.json"
+  File.write(filename, data.to_json)
+  puts "created #{filename}"
+end
 
+puts output_teams_by_tier.values.flatten.uniq.map{|team| team[:name]}
 puts output_teams_by_tier.values.flatten.uniq.count
