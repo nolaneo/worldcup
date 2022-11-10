@@ -1,5 +1,5 @@
 <div class="flex -space-x-1 w-3/6" ...attributes>
   {{#each this.players as |player|}}
-    <img src="/assets/{{player.image}}" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" title={{player.name}}/>
+    <Avatar @url={{player.image}}  @title={{player.name}} class="w-8 h-8" />
   {{/each}}
 </div>
