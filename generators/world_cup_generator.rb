@@ -135,7 +135,7 @@ TEAMS = [
     code: 'GER',
     flag: '🇩🇪',
     group: 'E',
-    tier: 2,
+    tier: 1,
   },
   {
     name: 'Japan',
@@ -156,7 +156,7 @@ TEAMS = [
     code: 'BEL',
     flag: '🇧🇪',
     group: 'F',
-    tier: 1,
+    tier: 2,
   },
   {
     name: 'Croatia',
