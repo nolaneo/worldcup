@@ -4,7 +4,7 @@ module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'worldcup',
     environment,
-    rootURL: '/',
+    rootURL: process.env.ROOT_URL ? process.env.ROOT_URL : '/',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
