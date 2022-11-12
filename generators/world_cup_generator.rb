@@ -269,15 +269,30 @@ output_teams_by_tier = {
 end
 
 
-number_of_combinations = 20_000
+number_of_combinations = 100_000
+
+max_overlaps = (players.count / 8.0).floor
 
 result = 1.upto(number_of_combinations).find do |i|
   puts "Calculating combination #{i}"
 
   is_ok = 0.upto(players.count).all? do |i|
-    output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i][:group] }.uniq.count == 4
+    output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i][:group] }.uniq.count == 4 &&
     output_teams_by_tier.keys.map { |tier| output_teams_by_tier[tier][i][:name] }.uniq.count >= 4
+  end
 
+
+  is_ok = is_ok && (0).upto(players.count).all? do |player, i|
+    overlaps = 0
+    output_teams_by_tier.keys do |tier|
+      team_for_player = output_teams_by_tier[tier][i][:group]
+      all_instance_of_this_team = output_teams_by_tier[tier].select { |team| team[:group] == team_for_player[:group] }
+
+      overlaps += 1 if all_instance_of_this_team.count > 1
+    end
+
+    next false if overlaps > max_overlaps
+    true
   end
 
   if !is_ok
