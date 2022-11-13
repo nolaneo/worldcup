@@ -1,94 +1,94 @@
 {
   "players": [
-    {
-      "name": "Hender",
-      "teams": [
-        "ENG",
-        "DEN",
-        "MKD"
-      ],
-      "image": "college/hender.jpg"
-    },
-    {
-      "name": "Níall",
-      "teams": [
-        "ITA",
-        "RUS",
-        "UKR"
-      ],
-      "image": "college/niall.jpg"
-    },
-    {
-      "name": "Eoin",
-      "teams": [
-        "NED",
-        "POL",
-        "WAL"
-      ],
-      "image": "college/eoin.jpg"
-    },
-    {
-      "name": "Dan",
-      "teams": [
-        "GER",
-        "CRO",
-        "FIN"
-      ],
-      "image": "college/dan.jpg"
-    },
-    {
-      "name": "Ming",
-      "teams": [
-        "BEL",
-        "SWE",
-        "HUN"
-      ],
-      "image": "college/ming.jpg"
-    },
-    {
-      "name": "Dave",
-      "teams": [
-        "POR",
-        "TUR",
-        "SVK"
-      ],
-      "image": "college/dave.jpg"
-    },
-    {
-      "name": "Dyl",
-      "teams": [
-        "FRA",
-        "SUI",
-        "SCO"
-      ],
-      "image": "college/dyl.jpg"
-    },
-    {
-      "name": "Alan",
-      "teams": [
-        "ESP",
-        "AUT",
-        "CZE"
-      ],
-      "image": "college/alan.jpg"
-    },
-    {
-      "name": "Shane",
-      "teams": [
-        "NED",
-        "SWE",
-        "CZE"
-      ],
-      "image": "college/shane.jpg"
-    },
-    {
-      "name": "Will",
-      "teams": [
-        "ESP",
-        "SUI",
-        "FIN"
-      ],
-      "image": "college/will.jpg"
-    }
+      {
+          "name": "Dave",
+          "teams": [
+              "GER",
+              "DEN",
+              "MAR",
+              "KSA"
+          ],
+          "image": "college/dave.jpg"
+      },
+      {
+          "name": "Shane",
+          "teams": [
+              "ENG",
+              "BEL",
+              "AUS",
+              "CMR"
+          ],
+          "image": "college/shane.jpg"
+      },
+      {
+          "name": "Alan",
+          "teams": [
+              "ARG",
+              "URU",
+              "SRB",
+              "CRC"
+          ],
+          "image": "college/alan.jpg"
+      },
+      {
+          "name": "Will",
+          "teams": [
+              "NED",
+              "SUI",
+              "KOR",
+              "CAN"
+          ],
+          "image": "college/will.jpg"
+      },
+      {
+          "name": "Ming",
+          "teams": [
+              "ESP",
+              "SEN",
+              "AUS",
+              "GHA"
+          ],
+          "image": "college/ming.jpg"
+      },
+      {
+          "name": "Dyl",
+          "teams": [
+              "POR",
+              "MEX",
+              "ECU",
+              "IRN"
+          ],
+          "image": "college/dyl.jpg"
+      },
+      {
+          "name": "Niall",
+          "teams": [
+              "FRA",
+              "SUI",
+              "POL",
+              "QAT"
+          ],
+          "image": "college/niall.jpg"
+      },
+      {
+          "name": "Dan",
+          "teams": [
+              "POR",
+              "CRO",
+              "USA",
+              "TUN"
+          ],
+          "image": "college/dan.jpg"
+      },
+      {
+          "name": "Eoin",
+          "teams": [
+              "BRA",
+              "WAL",
+              "JPN",
+              "KSA"
+          ],
+          "image": "college/eoin.jpg"
+      }
   ]
 }
