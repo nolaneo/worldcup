@@ -20,6 +20,7 @@
 /testem.log
 /yarn-error.log
 /.DS_Store
+/public/assets/svg/.DS_Store
 
 # ember-try
 /.node_modules.ember-try/
