@@ -156,23 +156,42 @@ export default class Api extends Service {
     // The UEFA API does not seem to be returning live scores for FIFA competitions,
     // so just inject the scores from the FIFA API here to avoid having to rewrite the app.
     liveFixtures.forEach((liveFixture) => {
-      let matchingFixture = this.model.fixtures.find(
-        (fixture) =>
-          fixture.kickOffTime.dateTime === liveFixture.Date &&
-          fixture.homeTeam.countryCode === liveFixture.HomeTeam.IdCountry &&
-          fixture.awayTeam.countryCode === liveFixture.AwayTeam.IdCountry
+      let matchingFixtures = this.model.fixtures.filter((fixture) =>
+        this.isSameTeam(fixture, liveFixture)
       );
 
-      if (matchingFixture) {
-        matchingFixture.status = 'LIVE';
-        matchingFixture.minute = { normal: liveFixture.MatchTime };
-        matchingFixture.translations = {
-          phaseName: { EN: this.fifaToUefaPhaseName(liveFixture.Period) },
-        };
-        matchingFixture.score = {
+      if (matchingFixtures) {
+        matchingFixtures.forEach((matchingFixture) => {
+          matchingFixture.status = 'LIVE';
+          matchingFixture.minute = { normal: liveFixture.MatchTime };
+          matchingFixture.translations = {
+            phaseName: { EN: this.fifaToUefaPhaseName(liveFixture.Period) },
+          };
+          matchingFixture.score = {
+            total: {
+              away: liveFixture.AwayTeam.Score,
+              home: liveFixture.HomeTeam.Score,
+            },
+          };
+        });
+      }
+    });
+
+    let finishedFixtures = this.model.liveScores.filter(
+      (fixture) => fixture.Winner
+    );
+
+    finishedFixtures.forEach((fifaFixture) => {
+      let finishedFixture = this.model.fixtures.find((uefaFixture) =>
+        this.isSameTeam(uefaFixture, fifaFixture)
+      );
+
+      if (finishedFixture) {
+        finishedFixture.status = 'FINISHED';
+        finishedFixture.score = {
           total: {
-            away: liveFixture.AwayTeam.Score,
-            home: liveFixture.HomeTeam.Score,
+            away: fifaFixture.AwayTeam.Score,
+            home: fifaFixture.HomeTeam.Score,
           },
         };
       }
@@ -207,6 +226,14 @@ export default class Api extends Service {
     this.model.standings = [
       { items: mappedStandings },
     ] as GroupStandingWireFormat[];
+  }
+
+  private isSameTeam(uefaFixture: FixtureWireformat, fifaFixture: MatchResult) {
+    return (
+      uefaFixture.kickOffTime.dateTime === fifaFixture.Date &&
+      uefaFixture.homeTeam.countryCode === fifaFixture.HomeTeam.IdCountry &&
+      uefaFixture.awayTeam.countryCode === fifaFixture.AwayTeam.IdCountry
+    );
   }
 
   private fifaToUefaPhaseName(phaseNumber: number) {
