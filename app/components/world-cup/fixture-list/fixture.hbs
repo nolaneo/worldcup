@@ -6,7 +6,7 @@
         <div class="flex flex-row space-x-2 items-center">
           <div class="h-3 w-3 rounded-full bg-red-800 animate-pulse"></div>
           <div>
-            <span class="whitespace-nowrap">LIVE{{~#if @fixture.minute.normal}}: {{or @fixture.minute.normal '––'}} {{~#if @fixture.minute.injury}}+{{@fixture.minute.injury}}{{/if}}'{{/if}}</span>
+            <span class="whitespace-nowrap">LIVE{{~#if @fixture.minute.normal}}: {{or @fixture.minute.normal '––'}} {{~#if @fixture.minute.injury}}+{{@fixture.minute.injury}}{{/if}}{{/if}}</span>
           </div>
         </div>
         <div class="text-gray-500 text-center uppercase font-thin whitespace-nowrap">

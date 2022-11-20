@@ -89,7 +89,7 @@ export interface GroupStandingWireFormat {
 }
 
 export interface MatchResult {
-  MatchTime: string;
+  MatchTime: any;
   GroupName: string;
   Date: string;
   HomeTeam: {
@@ -100,7 +100,8 @@ export interface MatchResult {
     IdCountry: string;
     Score: number;
   };
-  MatchStatus: number; // 3 == live
+  MatchStatus: number; // 3 == live,
+  Period: number; // 3 == first half? 4 == half time, 5 == second half
 }
 export interface LiveScoreWireFormat {
   Results: Array<MatchResult>;
@@ -147,6 +148,10 @@ export default class Api extends Service {
 
       if (matchingFixture) {
         matchingFixture.status = 'LIVE';
+        matchingFixture.minute = { normal: liveFixture.MatchTime };
+        matchingFixture.translations = {
+          phaseName: { EN: this.fifaToUefaPhaseName(liveFixture.Period) },
+        };
         matchingFixture.score = {
           total: {
             away: liveFixture.AwayTeam.Score,
@@ -155,6 +160,19 @@ export default class Api extends Service {
         };
       }
     });
+  }
+
+  private fifaToUefaPhaseName(phaseNumber: number) {
+    switch (phaseNumber) {
+      case 3:
+        return 'First half';
+      case 4:
+        return 'Half time';
+      case 5:
+        return 'Second half';
+      default:
+        return 'In progress';
+    }
   }
 
   @task
