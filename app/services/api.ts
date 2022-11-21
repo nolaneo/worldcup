@@ -178,7 +178,7 @@ export default class Api extends Service {
     });
 
     let finishedFixtures = this.model.liveScores.filter(
-      (fixture) => fixture.Winner
+      (fixture) => fixture.Winner || fixture.Period === 10
     );
 
     finishedFixtures.forEach((fifaFixture) => {

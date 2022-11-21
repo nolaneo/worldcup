@@ -13,15 +13,20 @@
           {{or @fixture.translations.phaseName.EN 'First half'}}
         </div>
       {{else if this.isUpcoming}}
-      <div class="flex flex-col space-y-1">
-        <div class="rounded bg-blue-700 text-white uppercase text-xs px-2 py-1 bg-opacity-50 whitespace-nowrap">
-          {{@fixture.group.metaData.groupName}}
+        <div class="flex flex-col space-y-1 items-center">
+          <div class="rounded bg-blue-700 text-white uppercase text-xs px-2 py-1 bg-opacity-50 whitespace-nowrap max-w-min">
+            {{@fixture.group.metaData.groupName}}
+          </div>
+          <span>vs</span>
         </div>
-        <span>vs</span>
-      </div>
       {{else}}
-        <div class="text-gray-400 text-center uppercase font-thin whitespace-nowrap">
-          {{moment-from-now @fixture.kickOffTime.dateTime}}
+        <div class="flex flex-col space-y-1 items-center">
+          <div class="rounded bg-blue-700 text-white uppercase text-xs px-2 py-1 bg-opacity-50 whitespace-nowrap max-w-min">
+            {{@fixture.group.metaData.groupName}}
+          </div>
+          <div class="text-gray-400 text-center uppercase font-thin whitespace-nowrap">
+            {{moment-from-now @fixture.kickOffTime.dateTime}}
+          </div>
         </div>
       {{/if}}
     </div>
