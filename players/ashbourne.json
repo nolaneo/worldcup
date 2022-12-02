@@ -1,0 +1,100 @@
+{
+  "players": [
+    {
+      "name": "Dyl",
+      "teams": [
+        "UKR",
+        "TUR"
+      ],
+      "image": "ashbourne/dyl.jpg"
+    },
+    {
+      "name": "Ingus",
+      "teams": [
+        "NED",
+        "CZE"
+      ],
+      "image": "ashbourne/ingus.jpg"
+    },
+    {
+      "name": "Paul",
+      "teams": [
+        "FRA",
+        "SUI"
+      ],
+      "image": "ashbourne/paul.jpg"
+    },
+    {
+      "name": "Chris",
+      "teams": [
+        "CRO",
+        "SVK"
+      ],
+      "image": "ashbourne/chris.jpg"
+    },
+    {
+      "name": "Mark",
+      "teams": [
+        "POL",
+        "RUS"
+      ],
+      "image": "ashbourne/mark.jpg"
+    },
+    {
+      "name": "Darren",
+      "teams": [
+        "AUT",
+        "GER"
+      ],
+      "image": "ashbourne/dk.jpg"
+    },
+    {
+      "name": "Gus",
+      "teams": [
+        "HUN",
+        "ITA"
+      ],
+      "image": "ashbourne/gus.jpg"
+    },
+    {
+      "name": "Seán",
+      "teams": [
+        "ENG",
+        "WAL"
+      ],
+      "image": "ashbourne/sean.jpg"
+    },
+    {
+      "name": "Manus",
+      "teams": [
+        "ESP",
+        "MKD"
+      ],
+      "image": "ashbourne/manus.jpg"
+    },
+    {
+      "name": "Faolán",
+      "teams": [
+        "POR",
+        "SWE"
+      ],
+      "image": "ashbourne/faolan.jpg"
+    },
+    {
+      "name": "Glen",
+      "teams": [
+        "BEL",
+        "FIN"
+      ],
+      "image": "ashbourne/glen.jpg"
+    },
+    {
+      "name": "Steph",
+      "teams": [
+        "DEN",
+        "SCO"
+      ],
+      "image": "ashbourne/steph.jpg"
+    }
+  ]
+}
