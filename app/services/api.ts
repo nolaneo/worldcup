@@ -5,7 +5,8 @@ import { taskFor } from 'ember-concurrency-ts';
 
 const standingsEndpoint = `https://standings.uefa.com/v1/standings?groupIds=2007941,2007942,2007943,2007944,2007946,2007945,2007947,2007948`;
 const apiKey = `ceeee1a5bb209502c6c438abd8f30aef179ce669bb9288f2d1cf2fa276de03f4`;
-const liveScoreEndpoint = `https://api.fifa.com/api/v3/live/football/range?from=2022-11-20T00:00:00Z&to=2022-12-20T00:00:00Z&IdSeason=255711&language=en&IdCompetition=17`;
+const liveScoreEndpoint = `https://api.fifa.com/api/v3/live/football/range?from=2022-11-20T00:00:00Z&to=2022-12-01T00:00:00Z&IdSeason=255711&IdCompetition=17`;
+const liveScoreEndpoint2 = `https://api.fifa.com/api/v3/live/football/range?from=2022-12-01T00:00:00Z&to=2022-12-20T00:00:00Z&IdSeason=255711&IdCompetition=17`;
 const fifaStandingsEndpoint = `https://api.fifa.com/api/v3/calendar/17/255711/285063/standing?language=en`;
 
 export type CountryCode =
@@ -279,7 +280,14 @@ export default class Api extends Service {
 
   @task
   *liveScores(): TaskGenerator<any> {
-    return yield this.fetch(liveScoreEndpoint);
+    let res = yield Promise.all([
+      this.fetch(liveScoreEndpoint),
+      this.fetch(liveScoreEndpoint2),
+    ]);
+
+    res[0].Results = [...res[0].Results, ...res[1].Results];
+
+    return res[0];
   }
 
   async fetch(endpoint: string) {
