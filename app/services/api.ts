@@ -72,7 +72,6 @@ export type CountryCode =
   | 'DNK'
   | 'CHN'
   | 'HAI'
-  | 'PRT'
   | 'VIE'
   | 'JAM'
   | 'PAN'
