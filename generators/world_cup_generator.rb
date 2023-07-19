@@ -248,7 +248,7 @@ TEAMS = [
   {
       "country": "Switzerland",
       "group": "A",
-      "code": "CHE",
+      "code": "SUI",
       "flag": "🇨🇭",
       "tier": 2
   },
@@ -262,7 +262,7 @@ TEAMS = [
   {
       "country": "Philippines",
       "group": "A",
-      "code": "PHL",
+      "code": "PHI",
       "flag": "🇵🇭",
       "tier": 4
   },
@@ -311,14 +311,14 @@ TEAMS = [
   {
       "country": "Zambia",
       "group": "C",
-      "code": "ZMB",
+      "code": "ZAM",
       "flag": "🇿🇲",
       "tier": 3
   },
   {
       "country": "Costa Rica",
       "group": "C",
-      "code": "CRI",
+      "code": "CRC",
       "flag": "🇨🇷",
       "tier": 4
   },
@@ -332,7 +332,7 @@ TEAMS = [
   {
       "country": "Denmark",
       "group": "D",
-      "code": "DNK",
+      "code": "DEN",
       "flag": "🇩🇰",
       "tier": 2
   },
@@ -346,7 +346,7 @@ TEAMS = [
   {
       "country": "Haiti",
       "group": "D",
-      "code": "HTI",
+      "code": "HAI",
       "flag": "🇭🇹",
       "tier": 4
   },
@@ -360,14 +360,14 @@ TEAMS = [
   {
       "country": "Netherlands",
       "group": "E",
-      "code": "NLD",
+      "code": "NED",
       "flag": "🇳🇱",
       "tier": 2
   },
   {
       "country": "Portugal",
       "group": "E",
-      "code": "PRT",
+      "code": "POR",
       "flag": "🇵🇹",
       "tier": 3
   },
@@ -437,7 +437,7 @@ TEAMS = [
   {
       "country": "Germany",
       "group": "H",
-      "code": "DEU",
+      "code": "GER",
       "flag": "🇩🇪",
       "tier": 1
   },

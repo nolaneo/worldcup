@@ -1,0 +1,84 @@
+{
+  "players": [
+      {
+          "name": "Mark",
+          "teams": [
+              "AUS",
+              "BRA",
+              "ZAM",
+              "HAI"
+          ],
+          "image": "pintmen/mark.jpg"
+      },
+      {
+          "name": "Serena",
+          "teams": [
+              "SWE",
+              "JPN",
+              "CHN",
+              "VIE"
+          ],
+          "image": "pintmen/serena.jpg"
+      },
+      {
+          "name": "Peter",
+          "teams": [
+              "ESP",
+              "COL",
+              "POR",
+              "PAN"
+          ],
+          "image": "pintmen/peter.jpg"
+      },
+      {
+          "name": "Sean",
+          "teams": [
+              "FRA",
+              "ITA",
+              "KOR",
+              "CRC"
+          ],
+          "image": "pintmen/sean.jpg"
+      },
+      {
+          "name": "Waheed",
+          "teams": [
+              "USA",
+              "SUI",
+              "ARG",
+              "NGA"
+          ],
+          "image": "pintmen/waheed.jpg"
+      },
+      {
+          "name": "Marty",
+          "teams": [
+              "ENG",
+              "NED",
+              "IRL",
+              "PHI"
+          ],
+          "image": "pintmen/martin.jpg"
+      },
+      {
+          "name": "Austin",
+          "teams": [
+              "NOR",
+              "CAN",
+              "JAM",
+              "MAR"
+          ],
+          "image": "pintmen/austin.jpg"
+      },
+      {
+          "name": "Eoin",
+          "teams": [
+              "GER",
+              "DEN",
+              "NZL",
+              "RSA"
+          ],
+          "image": "college/eoin.jpg"
+      }
+  ]
+}

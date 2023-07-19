@@ -54,6 +54,22 @@ export default class Sweepstakes extends Service {
     ECU: [],
     IRN: [],
     KSA: [],
+    NOR: [],
+    CHE: [],
+    NZL: [],
+    PHI: [],
+    IRL: [],
+    NGA: [],
+    ZAM: [],
+    CRI: [],
+    DNK: [],
+    CHN: [],
+    HAI: [],
+    VIE: [],
+    JAM: [],
+    PAN: [],
+    RSA: [],
+    COL: [],
   };
 
   setPlayers(players: Array<Player>) {
