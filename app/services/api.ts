@@ -189,7 +189,7 @@ export default class Api extends Service {
           internationalName: fifaFixture.AwayTeam.ShortClubName,
           associationLogoUrl: '',
           countryCode: (fifaFixture.AwayTeam.IdCountry ??
-            fifaFixture.HomeTeam.IdAssociation) as CountryCode,
+            fifaFixture.AwayTeam.IdAssociation) as CountryCode,
           isPlaceholder: false,
         },
         kickOffTime: { dateTime: fifaFixture.Date },
