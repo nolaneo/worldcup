@@ -20,6 +20,8 @@ module.exports = {
         slate: '#1B1C21',
         charcoal: '#25262B',
         worldcup: '#0184A4',
+        teal: '#159990',
+        cream: '#f1f0d8',
       },
     },
     screens: {
