@@ -121,11 +121,13 @@ export interface MatchResult {
     IdCountry: string;
     Score: number;
     ShortClubName: string;
+    IdAssociation: string;
   };
   AwayTeam: {
     IdCountry: string;
     Score: number;
     ShortClubName: string;
+    IdAssociation: string;
   };
   MatchStatus: number; // 1 == Not started? 3 == live,
   Period: number; // 0 == not started? 3 == first half? 4 == half time, 5 == second half,
@@ -179,13 +181,15 @@ export default class Api extends Service {
         homeTeam: {
           internationalName: fifaFixture.HomeTeam.ShortClubName,
           associationLogoUrl: '',
-          countryCode: fifaFixture.HomeTeam.IdCountry as CountryCode,
+          countryCode: (fifaFixture.HomeTeam.IdCountry ??
+            fifaFixture.HomeTeam.IdAssociation) as CountryCode,
           isPlaceholder: false,
         },
         awayTeam: {
           internationalName: fifaFixture.AwayTeam.ShortClubName,
           associationLogoUrl: '',
-          countryCode: fifaFixture.AwayTeam.IdCountry as CountryCode,
+          countryCode: (fifaFixture.AwayTeam.IdCountry ??
+            fifaFixture.HomeTeam.IdAssociation) as CountryCode,
           isPlaceholder: false,
         },
         kickOffTime: { dateTime: fifaFixture.Date },
