@@ -141,6 +141,7 @@ export interface FifaStandingWireFormat {
   Team: {
     IdCountry: string;
     ShortClubName: string;
+    IdAssociation: string;
   };
   Won: number;
   Played: number;
@@ -243,7 +244,9 @@ export default class Api extends Service {
         isLive: liveFixtures.any(
           (fixture) =>
             fixture.AwayTeam.IdCountry === standing.Team.IdCountry ||
-            fixture.HomeTeam.IdCountry === standing.Team.IdCountry
+            fixture.HomeTeam.IdCountry === standing.Team.IdCountry ||
+            fixture.HomeTeam.IdCountry === standing.Team.IdAssociation ||
+            fixture.AwayTeam.IdCountry === standing.Team.IdAssociation
         ),
         lost: standing.Lost,
         played: standing.Played,
@@ -252,7 +255,7 @@ export default class Api extends Service {
         team: {
           internationalName: standing.Team.ShortClubName,
           associationLogoUrl: '',
-          countryCode: standing.Team.IdCountry,
+          countryCode: standing.Team.IdCountry ?? standing.Team.IdAssociation,
           isPlaceholder: false,
         },
       };
