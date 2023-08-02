@@ -1,0 +1,216 @@
+{
+  "players": [
+      {
+          "name": "Amir",
+          "teams": [
+              "NED"
+          ],
+          "image": "intercom/amir.jpeg"
+      },
+      {
+          "name": "Barry",
+          "teams": [
+              "SUI"
+          ],
+          "image": "intercom/barry.jpeg"
+      },
+      {
+          "name": "Brian",
+          "teams": [
+              "KOR"
+          ],
+          "image": "intercom/brian.jpeg"
+      },
+      {
+          "name": "Christine",
+          "teams": [
+              "IRL",
+              "ARG"
+          ],
+          "image": "intercom/christine.jpeg"
+      },
+      {
+          "name": "Colin",
+          "teams": [
+              "BRA"
+          ],
+          "image": "intercom/colin.jpeg"
+      },
+      {
+          "name": "Daniel",
+          "teams": [
+              "GER"
+          ],
+          "image": "intercom/daniel.jpeg"
+      },
+      {
+          "name": "Davin",
+          "teams": [
+              "MAR"
+          ],
+          "image": "intercom/davin.jpeg"
+      },
+      {
+          "name": "Des",
+          "teams": [
+              "NGA"
+          ],
+          "image": "intercom/des.jpeg"
+      },
+      {
+          "name": "Eric",
+          "teams": [
+              "NZL"
+          ],
+          "image": "intercom/eric.jpeg"
+      },
+      {
+          "name": "Gareth",
+          "teams": [
+              "USA"
+          ],
+          "image": "intercom/gareth.jpeg"
+      },
+      {
+          "name": "Graham",
+          "teams": [
+              "CHN"
+          ],
+          "image": "intercom/graham.jpeg"
+      },
+      {
+          "name": "Jack",
+          "teams": [
+              "SWE"
+          ],
+          "image": "intercom/jack.jpeg"
+      },
+      {
+          "name": "Juci",
+          "teams": [
+              "ZAM"
+          ],
+          "image": "intercom/juci.jpeg"
+      },
+      {
+          "name": "Kevin",
+          "teams": [
+              "HAI"
+          ],
+          "image": "intercom/kevin.jpeg"
+      },
+      {
+          "name": "Leanne",
+          "teams": [
+              "ENG"
+          ],
+          "image": "intercom/leanne.jpeg"
+      },
+      {
+          "name": "Louise",
+          "teams": [
+              "CRC"
+          ],
+          "image": "intercom/louise.jpeg"
+      },
+      {
+          "name": "Margaret",
+          "teams": [
+              "POR",
+              "PAN"
+          ],
+          "image": "intercom/margaret.jpeg"
+      },
+      {
+          "name": "Mark",
+          "teams": [
+              "JPN"
+          ],
+          "image": "intercom/mark.jpeg"
+      },
+      {
+          "name": "Neil",
+          "teams": [
+              "NOR"
+          ],
+          "image": "intercom/neil.jpeg"
+      },
+      {
+          "name": "Niamh",
+          "teams": [
+              "RSA"
+          ],
+          "image": "intercom/niamh.jpeg"
+      },
+      {
+          "name": "Oseas",
+          "teams": [
+              "ESP"
+          ],
+          "image": "intercom/oseas.jpeg"
+      },
+      {
+          "name": "Pat",
+          "teams": [
+              "VIE"
+          ],
+          "image": "intercom/pat.jpeg"
+      },
+      {
+          "name": "Paul M",
+          "teams": [
+              "JAM"
+          ],
+          "image": "intercom/paulm.jpeg"
+      },
+      {
+          "name": "Paul P",
+          "teams": [
+              "AUS"
+          ],
+          "image": "intercom/paulp.jpeg"
+      },
+      {
+          "name": "Peter D",
+          "teams": [
+              "FRA"
+          ],
+          "image": "intercom/peterd.jpeg"
+      },
+      {
+          "name": "Peter M",
+          "teams": [
+              "CAN"
+          ],
+          "image": "intercom/peterm.jpeg"
+      },
+      {
+          "name": "Sarah",
+          "teams": [
+              "PHI"
+          ],
+          "image": "intercom/sarah.jpeg"
+      },
+      {
+          "name": "Sean",
+          "teams": [
+              "ITA"
+          ],
+          "image": "intercom/sean.jpeg"
+      },
+      {
+          "name": "Tom",
+          "teams": [
+              "COL"
+          ],
+          "image": "intercom/tom.jpeg"
+      },
+      {
+          "name": "Tommy",
+          "teams": [
+              "DEN"
+          ],
+          "image": "intercom/tommy.jpeg"
+      }
+  ]
+}
