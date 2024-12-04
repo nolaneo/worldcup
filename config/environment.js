@@ -4,7 +4,7 @@ module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'worldcup',
     environment,
-    rootURL: '/',
+    rootURL: process.env.ROOT_URL ? process.env.ROOT_URL : '/',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
@@ -20,6 +20,7 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      default_group: process.env.DEFAULT_GROUP,
     },
   };
 
