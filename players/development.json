@@ -1,0 +1,100 @@
+{
+  "players": [
+    {
+      "name": "Alice",
+      "teams": [
+        "POR",
+        "MEX",
+        "AUT",
+        "SWE",
+        "AUS",
+        "NZL"
+      ],
+      "image": "https://api.dicebear.com/9.x/avataaars/svg?seed=Alice"
+    },
+    {
+      "name": "Bob",
+      "teams": [
+        "NED",
+        "MAR",
+        "SEN",
+        "BIH",
+        "COD",
+        "RSA"
+      ],
+      "image": "https://api.dicebear.com/9.x/avataaars/svg?seed=Bob"
+    },
+    {
+      "name": "Carol",
+      "teams": [
+        "ENG",
+        "JPN",
+        "CIV",
+        "ALG",
+        "CZE",
+        "CPV"
+      ],
+      "image": "https://api.dicebear.com/9.x/avataaars/svg?seed=Carol"
+    },
+    {
+      "name": "Dave",
+      "teams": [
+        "BRA",
+        "NOR",
+        "SUI",
+        "EGY",
+        "PAN",
+        "CUW"
+      ],
+      "image": "https://api.dicebear.com/9.x/avataaars/svg?seed=Dave"
+    },
+    {
+      "name": "Eve",
+      "teams": [
+        "ESP",
+        "COL",
+        "CAN",
+        "KOR",
+        "TUN",
+        "JOR"
+      ],
+      "image": "https://api.dicebear.com/9.x/avataaars/svg?seed=Eve"
+    },
+    {
+      "name": "Frank",
+      "teams": [
+        "ARG",
+        "USA",
+        "ECU",
+        "IRN",
+        "IRQ",
+        "KSA"
+      ],
+      "image": "https://api.dicebear.com/9.x/avataaars/svg?seed=Frank"
+    },
+    {
+      "name": "Grace",
+      "teams": [
+        "GER",
+        "URU",
+        "CRO",
+        "PAR",
+        "QAT",
+        "HAI"
+      ],
+      "image": "https://api.dicebear.com/9.x/avataaars/svg?seed=Grace"
+    },
+    {
+      "name": "Henry",
+      "teams": [
+        "FRA",
+        "BEL",
+        "TUR",
+        "SCO",
+        "UZB",
+        "GHA"
+      ],
+      "image": "https://api.dicebear.com/9.x/avataaars/svg?seed=Henry"
+    }
+  ]
+}
