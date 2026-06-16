@@ -24,10 +24,10 @@ export function StandingsTable({ rows }: Props) {
               <th className="w-1 p-0"></th>
               <th className="px-2 py-2" colSpan={2}></th>
               <th className="px-1.5 py-2 text-center w-9">MP</th>
-              <th className="px-1.5 py-2 text-center w-8 hidden xs:table-cell">W</th>
-              <th className="px-1.5 py-2 text-center w-8 hidden xs:table-cell">D</th>
-              <th className="px-1.5 py-2 text-center w-8 hidden xs:table-cell">L</th>
-              <th className="px-1.5 py-2 text-center w-10 hidden sm:table-cell">GD</th>
+              <th className="px-1.5 py-2 text-center w-8 hidden sm:table-cell">W</th>
+              <th className="px-1.5 py-2 text-center w-8 hidden sm:table-cell">D</th>
+              <th className="px-1.5 py-2 text-center w-8 hidden sm:table-cell">L</th>
+              <th className="px-1.5 py-2 text-center w-10 hidden md:table-cell">GD</th>
               <th className="px-3 py-2 text-right w-12 font-bold">PTS</th>
             </tr>
           </thead>
@@ -79,16 +79,16 @@ export function StandingsTable({ rows }: Props) {
                   <td className="px-1.5 py-3 text-center font-mono font-medium tab-num text-sm text-ink-900/70 dark:text-ink-50/70">
                     {row.played}
                   </td>
-                  <td className="px-1.5 py-3 text-center font-mono font-medium tab-num text-sm text-ink-900/70 dark:text-ink-50/70 hidden xs:table-cell">
+                  <td className="px-1.5 py-3 text-center font-mono font-medium tab-num text-sm text-ink-900/70 dark:text-ink-50/70 hidden sm:table-cell">
                     {row.won}
                   </td>
-                  <td className="px-1.5 py-3 text-center font-mono font-medium tab-num text-sm text-ink-900/70 dark:text-ink-50/70 hidden xs:table-cell">
+                  <td className="px-1.5 py-3 text-center font-mono font-medium tab-num text-sm text-ink-900/70 dark:text-ink-50/70 hidden sm:table-cell">
                     {row.drawn}
                   </td>
-                  <td className="px-1.5 py-3 text-center font-mono font-medium tab-num text-sm text-ink-900/70 dark:text-ink-50/70 hidden xs:table-cell">
+                  <td className="px-1.5 py-3 text-center font-mono font-medium tab-num text-sm text-ink-900/70 dark:text-ink-50/70 hidden sm:table-cell">
                     {row.lost}
                   </td>
-                  <td className="px-1.5 py-3 text-center font-mono font-medium tab-num text-sm text-ink-900/70 dark:text-ink-50/70 hidden sm:table-cell">
+                  <td className="px-1.5 py-3 text-center font-mono font-medium tab-num text-sm text-ink-900/70 dark:text-ink-50/70 hidden md:table-cell">
                     {row.goalDifference > 0 ? `+${row.goalDifference}` : row.goalDifference}
                   </td>
                   <td className="px-3 py-3 text-right font-mono font-bold tab-num text-lg sm:text-xl text-ink-900 dark:text-ink-50">
